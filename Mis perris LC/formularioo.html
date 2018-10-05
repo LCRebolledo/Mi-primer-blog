@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario de Registro</title>
+	<link rel="stylesheet" href="estilos.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+
+ 
+
+<main role="main">
+
+	<section class="content-form">
+
+		<h2 class="sub-title">Formulario de registro</h2>
+		  
+        <br>
+        <form action="i" method="POST" id="registrar-form" >
+            <div class="form-group width-12"> 
+                <div class="width-6">
+                <h8 class="sub-form">Correo eléctronico</h8>
+				<input type="email" 
+                        class="form-control" 
+                        name="email" 
+                       required="required" 
+                       title="Debe ser un email válido"
+                        id="email"/> 
+                    
+				 </div> 
+				    <div class="width-6">
+                    <h8 class="sub-form">Run</h8>
+				    <input type="text" 
+                            class="form-control" 
+                            name="run" 
+                            required="required" 
+                           pattern="\d{3,8}-[\d|kK]{1}"
+                           title="Debe ser un Rut válido"
+                            id="run" /> 
+				    </div> 
+			 </div>
+            <br>
+             <div class="form-group width-12">
+				 <div class="width-6">
+                    <h8 class="sub-form">Nombre completo</h8>
+				  <input type="text" 
+                         class="form-control" 
+                         minlength="6" 
+                         maxlength="40"
+                         name="nombre"
+                         required="required" 
+                         
+                         title="Debe ser un nombre válido"
+                         id="nombre"/> 
+				 </div> 
+                    <div class="width-6">
+                    <h8 class="sub-form">Fecha de nacimiento</h8>
+				    <input type="date" 
+                            name="fecha" 
+                            min="1970-06-01" 
+                            max="2000-12-31" 
+                            value="2000-12-31" 
+                            step="1" 
+                            class="form-control"/> 
+				    </div>  
+			 </div>
+             <br>
+            <div class="form-group width-12">
+                <div class="width-6">
+                <h8 class="sub-form">Teléfono</h8>
+				<input type="number" 
+                       required="required" 
+                        class="form-control" 
+                        name="telefono" 
+                       title="Debe ser un teléfono válido"
+                       pattern="[0-9]*"
+                        id="telefono"/> 
+			     </div>  
+                    <div class="width-6">
+                    <h8 class="sub-form">Región</h8>
+                    <br>
+                    <script>
+                        var ciudad = new Array()
+                        ciudad[1] = ["Quinta Normal","Peñalolén"]
+                        ciudad[2] = ["Camarones","General Lagos"]
+                        ciudad[3] = ["Iquique","Colchane"]
+                        ciudad[4] = ["Calama","Tocopilla"]
+                        ciudad[5] = ["Copiapó","Vallenar"]
+                        ciudad[6] = ["Coquimbo","Canela"]
+                        ciudad[7] = ["Casablanca","Quintero"]
+                        ciudad[8] = ["Graneros","Marchihue"]
+                        ciudad[9] = ["Empedrado","Chanco"]
+                        ciudad[10] = ["Hualqui","Lota"]
+                        ciudad[11] = ["Galvarino","Toltén"]
+                        ciudad[12] = ["Lanco","Futrono"]
+                        ciudad[13] = ["Frutillar","Osorno"]
+                        ciudad[14] = ["Punta Arenas","Río Verde"]
+                        function ponCiudad(formu){	
+                            var laReg = formu.region.selectedIndex
+	                       formu.ciudad.length = ciudad[laReg].length
+	                       for (i=0; i<formu.ciudad.length; i++){	
+                            formu.ciudad.options[i].text = ciudad[laReg][i]
+                           }
+                        }
+
+                        </script>
+                        <form>
+                            <select name="region" onChange="ponCiudad(this.form)">
+                                <option selected>Elige...</option>
+                                <option value="1">Región Metropolitana</option>
+                                <option value="2">XV Arica y Parinacota</option>
+                                <option value="3">I Tarapacá</option>
+                                <option value="4">II Antofagasta</option>
+                                <option value="5">III Atacama</option>
+                                <option value="6">IV Coquimbo</option>    
+                                <option value="7">V Valparaíso</option>   
+                                <option value="8">VI O'Higgins</option>    
+                                <option value="9">VII Maule</option>       
+                                <option value="10">VIII Biobío</option>       
+                                <option value="10">IX La Araucanía</option>  
+                                <option value="11">XIV Los Ríos</option>  
+                                <option value="12">X Los Lagos</option> 
+                                <option value="13">XI Aysén</option> 
+                                <option value="14">XII Magallanes y Antártica</option> 
+                            </select>
+                          
+                </div>  
+			 </div>	      
+            <br>
+            <div class="form-group width-12">
+                <div class="width-6">
+                <h8 class="sub-form">Ciudad</h8>
+                        <br>
+                    <select name="ciudad">
+                        <option></option>
+                    </select>
+			     </div>
+                    <div class="width-6">
+                    <h8 class="sub-form">Tipo de vivienda</h8>
+                  <br>
+                        <select> 
+                        <option value="1">Casa con patio grande</option>
+                        <option value="2">Casa con patio pequeño</option>
+                        <option value="3">Casa sin patio</option>
+                        <option value="4">Departamento</option>
+                  </select>
+                <br>            
+			 <div class="center">
+                 <p style="line-height:5px;"></p>
+				<input type="submit" 
+                       value="REGISTRAR" 
+                       class="form-control btn btn-principal" 
+                       id="btn-registrar"/>		 
+			 </div>
+	</form>  	
+                        
+	</section>
+</main>
+<footer>
+	<div class="derechos">
+		Derechos Reservados © <a target="_blank">Mis Perris</a>  2018  
+	</div>
+</footer>
+	
+</body>
+</html>
